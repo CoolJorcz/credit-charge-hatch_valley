@@ -1,7 +1,7 @@
 class Charge < ActiveRecord::Base
 	belongs_to :customer
 	validates_presence_of :amount, :currency, :customer_id
-	scope :failed, -> { where(paid: false) }
+	scope :failed, -> { where(paid: false, refunded: false) }
 	scope :successful, -> { where(paid: true) }
 	scope :disputed, -> { where('dispute_date > 0 AND refunded = true') }
 	after_create :define_created
@@ -22,9 +22,9 @@ class Charge < ActiveRecord::Base
 	end
 
 	# For actual charge creation when data not seeded in
-	# def define_created
+	def define_created
 	# 	self.update(created: Time.now.to_i )
-	# end
+	end
 
 	private
 

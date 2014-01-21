@@ -38,7 +38,7 @@ end
 
 def dispute(charge)
 	from = charge.created
-	charge.update(refunded: true, dispute_date: rand_time(from, Time.now))
+	charge.update(paid: false, refunded: true, dispute_date: rand_time(from, Time.now))
 end
 
 def charge_customers
