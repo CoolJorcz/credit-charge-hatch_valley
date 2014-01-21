@@ -1,3 +1,3 @@
-<%= @failed.count %>
-<%= @success.count %>
-<%= @disputed.count %>
+<% [@failed, @disputed, @success].each_with_index do | type, i | %>
+	<h1> <%= @headers[i] %> Charges </h1>
+<% end %>
