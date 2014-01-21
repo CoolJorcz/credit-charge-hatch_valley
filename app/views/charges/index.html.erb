@@ -1,3 +1,11 @@
 <% [@failed, @disputed, @success].each_with_index do | type, i | %>
-	<h1> <%= @headers[i] %> Charges </h1>
+	<h1> <%= @headers[i] %> Charges</h1>
+	<div class="<%= @headers[i].downcase %>">
+		<h4>Name, Charge, <%= @headers[i] %> Charge Date</h4>
+		<ul>
+		<% type.each do |charge| %>
+		    <li><%=  charge[:name] %>, <%= charge[:amount] %>, <%= charge[:date] %></li>
+		<% end %>
+		</ul>
+	</div>
 <% end %>
