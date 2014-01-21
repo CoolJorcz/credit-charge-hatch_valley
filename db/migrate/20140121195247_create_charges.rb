@@ -5,7 +5,7 @@ class CreateCharges < ActiveRecord::Migration
     	t.boolean :paid, default: false
     	t.integer :amount
     	t.string :currency, null: false
-    	t.boolean :refunded, null: false
+    	t.boolean :refunded, default: false, null: false
     	t.references :customer
     	t.integer :dispute_date, :limit => 8, default: 0
 
