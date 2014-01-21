@@ -5,6 +5,7 @@
 		<ul>
 		<% type.each do |charge| %>
 		    <li><%=  charge[:name] %>, <%= charge[:amount] %>, <%= charge[:date] %></li>
+		    <hr>
 		<% end %>
 		</ul>
 	</div>

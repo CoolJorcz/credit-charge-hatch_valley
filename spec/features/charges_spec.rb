@@ -25,6 +25,10 @@ describe "Charges Index" do
 		page.should have_css(".failed li", :count => 5 )
 	end
 
+	it "should have 5 disputed charges" do
+		page.should have_css(".disputed li", :count => 5)
+	end
+
 	it "should have failed charges in disputed charges" do
 		@charge = Charge.where(paid: false, refunded: true).first
 		page.should have_content("#{@charge[:name]}")
