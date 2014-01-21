@@ -12,9 +12,13 @@ describe "Charges Index" do
 	end
 
 	it "should have three lists" do
+
 		page.should have_content("Successful Charges")
+		page.should have_css('.successful ul')
 		page.should have_content("Failed Charges")
+		page.should have_css('.failed ul')
 		page.should have_content("Disputed Charges")
+		page.should have_css(".disputed ul")
 	end
 
 	it "should have 10 successful charges" do

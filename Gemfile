@@ -36,6 +36,7 @@ group :test, :development do
 	gem 'rspec-rails', '~>3.0.0.beta'
 	gem 'shoulda-matchers'
 	gem 'capybara'
+	gem 'launchy'
 	gem 'binding_of_caller'
 	gem 'better_errors'
 end
