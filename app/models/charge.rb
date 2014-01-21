@@ -5,6 +5,7 @@ class Charge < ActiveRecord::Base
 	scope :successful, -> { where(paid: true) }
 	scope :disputed, -> { where('dispute_date > 0 AND refunded = true') }
 	after_create :define_created
+	after_save :check_refunded
 
 	def self.view_create(type)
 		view_array = []
@@ -24,6 +25,11 @@ class Charge < ActiveRecord::Base
 	# For actual charge creation when data not seeded in
 	def define_created
 	# 	self.update(created: Time.now.to_i )
+	end
+
+	# For actual disputes
+	def check_refunded
+		#self.refunded == true ? self.update(dispute_date: Time.now) : self
 	end
 
 	private
